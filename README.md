@@ -74,6 +74,7 @@ FreeBSD
 * [more](https://en.wikipedia.org/wiki/More_(command)), a limited interactive text file reader
 * [perl](https://www.perl.org/), a very complex text processor
 * [sed](https://en.wikipedia.org/wiki/Sed), a simple line processor
+* [shuf](https://linux.die.net/man/1/shuf), a line shuffler
 * [uniq](https://linux.die.net/man/1/uniq), a text filter for uniqueness
 
 🔪
