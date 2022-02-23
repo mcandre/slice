@@ -60,7 +60,7 @@ Washington
 Yokohama
 ```
 
-By default, `slice` reads from STDIN. See `slice -help` for more information.
+By default, `slice` reads from stdin. See `slice -help` for more information.
 
 # DOWNLOAD
 
