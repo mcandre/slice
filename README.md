@@ -30,7 +30,7 @@ For example, `head`/`tail` show only the very start and end of a document. Where
 
 ## Usage
 
-By default, the preservation rate of each line is `0.1` (10%). The probability of preserving input text is evaluated once per line. In other words, different runs of the same slice command may produce different sample output _line counts_, as well as different sample line contents.
+By default, the preservation rate of each line is `0.1` (10%).
 
 This probability can be customized with a `-rate` flag, as a value in `[0.0, 1.0]`. For example, to sample 5% of the stellar constellations:
 
@@ -41,7 +41,11 @@ Bootes
 Canis
 ```
 
-Alternatively, slice can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic rate behavior.
+The chance of preservation is evaluated once per line. In other words, different runs at the same slice rating may produce different sample output _line counts_, as well as different sample line contents.
+
+The `slice` operation does not attempt to reorder entries. Any apparent shuffling is a natural consequence of the input text supplied to `slice`. On the other hand, if deliberate shuffling is desired, then slice output may be piped further into additional tools like `shuf`.
+
+`slice` can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic rate behavior.
 
 ```console
 $ slice -skip 2 cities.txt
@@ -60,7 +64,9 @@ Washington
 Yokohama
 ```
 
-By default, `slice` reads from stdin. See `slice -help` for more information.
+By default, `slice` reads from stdin. `slice` reads up to one specified text file per run.
+
+See `slice -help` for more information.
 
 # DOWNLOAD
 
