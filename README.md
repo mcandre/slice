@@ -17,6 +17,8 @@ $ slice <romeo-and-juliet.txt
                                                          [Exit.]
 ```
 
+See `slice -help` for more information.
+
 # CONTRIBUTING
 
 See [DEVELOPMENT.md](DEVELOPMENT.md).
