@@ -60,11 +60,9 @@ Phoenix
 Vulpecula
 ```
 
-`slice` does not feature robust reordering, either by line order or by file path order. Any apparent shuffling is a natural consequence of the input text supplied to `slice`, and any inter-threading timings experienced during processing of multiple text files.
+`slice` is not primarily a reordering tool. Neither for line reordering nor file path reordering. Any apparent shuffling is a natural consequence of the input data and thread timings. Where deliberate shuffling is desired, slice may pipe with additional tools like `shuf`.
 
-If deliberate shuffling is desired, then slice output may be piped further into additional tools like `shuf`.
-
-For small data sets, `slice` may produce very short output, or no output. This artifact diminishes as the rate and/or input line count grows. Rather, we have optimized the sampling algorithm to scale well over large data sets. The chance of preservation is evaluated once per line. In other words, different runs at the same slice rating may produce different sample output _line counts_, as well as different sample line contents. For best effect, grow your input data size, or try using the `-skip` option.
+For small data sets, `slice` can produce very short output, or even no output. This artifact diminishes as the rate and/or input line count grows. In order to optimize the sampling algorithm for large data sets, we evaluate the chance of preservation once per line, at the time that line is processed. In other words, different runs at the same rating, may produce different sample output _line counts_, as well as different output contents. For best effect, generate more input data, or try the `-skip` option.
 
 `slice` can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic rate behavior.
 
