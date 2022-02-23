@@ -24,6 +24,7 @@ slice extracts random lines from text. This is useful for a variety of applicati
 * Statistics
 * Random name generator
 * Text processing
+* Telemetry downsampling
 * File previewing
 
 For example, `head`/`tail` show only the very start and end of a document. Whereas slice shows a more representative interlace of the overall content. Akin to `less`/`more`, but in a compact, intentionally lossy form.
