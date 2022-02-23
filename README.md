@@ -60,7 +60,7 @@ Phoenix
 Vulpecula
 ```
 
-`slice` does not feature robust reordering, either by line order or by file path order. Any apparent shuffling is a natural consequence of the input text supplied to `slice`, and any natural timing experienced during processing of multiple text files.
+`slice` does not feature robust reordering, either by line order or by file path order. Any apparent shuffling is a natural consequence of the input text supplied to `slice`, and any inter-threading timings experienced during processing of multiple text files.
 
 If deliberate shuffling is desired, then slice output may be piped further into additional tools like `shuf`.
 
