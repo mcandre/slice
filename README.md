@@ -34,6 +34,10 @@ Canis
 
 By default, `slice` reads from STDIN. See `slice -help` for more information.
 
+# DOWNLOAD
+
+https://github.com/mcandre/slice/releases
+
 # DOCUMENTATION
 
 https://pkg.go.dev/github.com/mcandre/slice

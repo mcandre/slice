@@ -6,11 +6,25 @@
 # INSTALL
 
 ```console
-$ go install ./...
+$ mage install
 ```
 
 # UNINSTALL
 
 ```console
-$ rm "${GOPATH}/bin/slice"
+$ mage uninstall
+```
+
+# LINT
+
+Keep the code tidy:
+
+```console
+$ mage lint
+```
+
+# PORT
+
+```console
+$ mage port
 ```
