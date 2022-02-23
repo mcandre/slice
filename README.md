@@ -19,6 +19,10 @@ $ slice <romeo-and-juliet.txt
 
 See `slice -help` for more information.
 
+# DOCUMENTATION
+
+https://pkg.go.dev/github.com/mcandre/slice
+
 # CONTRIBUTING
 
 See [DEVELOPMENT.md](DEVELOPMENT.md).
