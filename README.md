@@ -23,4 +23,8 @@ See `slice -help` for more information.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md).
 
+# LICENSE
+
+FreeBSD
+
 🔪
