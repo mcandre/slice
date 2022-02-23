@@ -30,7 +30,7 @@ For example, `head`/`tail` show only the very start and end of a document. Where
 
 ## Usage
 
-By default, the preservation rate of each line is `0.1` (10%). The probability of preserving the line onto output is evaluated once per line; different runs of the same slice command may produce different sample output _line counts_, as well as different line contents.
+By default, the preservation rate of each line is `0.1` (10%). The probability of preserving input text is evaluated once per line. In other words, different runs of the same slice command may produce different sample output _line counts_, as well as different line contents.
 
 This probability can be customized with a `-rate` flag, as a value in `[0.0, 1.0]`. For example, to sample 5% of the stellar constellations:
 
