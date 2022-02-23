@@ -26,12 +26,20 @@ $ slice romeo-and-juliet.txt
   Nurse to Juliet.
     In fair Verona, where we lay our scene,
                                                          [Exit.]
+```
 
+By default, the CLI rate preserves `0.1` (10%) of the lines in the source text. This preservation probability can be customized with a `-rate` flag.
+
+```console
 $ slice -rate 0.05 constellations.txt
 Ara
 Bootes
 Canis
+```
 
+Alternatively, slice can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic `-rate` behavior.
+
+```console
 $ slice -skip 2 cities.txt
 Amsterdam
 Casablanca
