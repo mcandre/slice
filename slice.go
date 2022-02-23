@@ -10,9 +10,6 @@ const Version = "0.0.1"
 // DefaultRate controls the normal probability preservation rate of each line.
 const DefaultRate = float64(0.1)
 
-// DefaultSkip controls the normal nth elision rate of line elision.
-const DefaultSkip = int64(2)
-
 // Slice samples text.
 //
 // rate specifies the probability of preserving each line.
