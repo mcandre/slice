@@ -9,6 +9,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"sync"
 	"time"
 )
 
@@ -42,34 +43,55 @@ func main() {
 	chIn, chOut, chDone := slice.Slice(rate, skip)
 	defer func() { chDone <- struct{}{} }()
 
-	reader := os.Stdin
-
-	args := flag.Args()
-
-	if len(args) > 0 {
-		r, err := os.Open(args[0])
-
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		defer r.Close()
-		reader = r
-	}
-
 	go func() {
 		for {
 			fmt.Println(<-chOut)
 		}
 	}()
 
-	scanner := bufio.NewScanner(reader)
+	args := flag.Args()
+	var wg sync.WaitGroup
+	argLen := len(args)
 
-	for scanner.Scan() {
-		chIn <- scanner.Text()
+	if argLen == 0 {
+		wg.Add(1)
+		scanner := bufio.NewScanner(os.Stdin)
+
+		for scanner.Scan() {
+			chIn <- scanner.Text()
+		}
+
+		if err := scanner.Err(); err != nil {
+			log.Fatal(err)
+		}
+
+		wg.Done()
+	} else {
+		wg.Add(argLen)
+
+		for _, arg := range args {
+			reader, err := os.Open(arg)
+
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			defer reader.Close()
+			scanner := bufio.NewScanner(reader)
+
+			go func(wg *sync.WaitGroup) {
+				for scanner.Scan() {
+					chIn <- scanner.Text()
+				}
+
+				if err := scanner.Err(); err != nil {
+					log.Fatal(err)
+				}
+
+				wg.Done()
+			}(&wg)
+		}
 	}
 
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
+	wg.Wait()
 }

@@ -41,9 +41,30 @@ Bootes
 Canis
 ```
 
-The chance of preservation is evaluated once per line. In other words, different runs at the same slice rating may produce different sample output _line counts_, as well as different sample line contents.
+`slice` supports sampling multiple text files concurrently.
 
-The `slice` operation does not attempt to reorder entries. Any apparent shuffling is a natural consequence of the input text supplied to `slice`. On the other hand, if deliberate shuffling is desired, then slice output may be piped further into additional tools like `shuf`.
+```console
+$ slice constellations.txt cities.txt colors.txt
+Ara
+Yellow
+Aries
+Gallipoli
+Cassiopeia
+Coma
+Washington
+Zurich
+Equuleus
+Leo
+Lupus
+Phoenix
+Vulpecula
+```
+
+`slice` does not feature robust reordering, either by line order or by file path order. Any apparent shuffling is a natural consequence of the input text supplied to `slice`, and any natural timing experienced during processing of multiple text files.
+
+If deliberate shuffling is desired, then slice output may be piped further into additional tools like `shuf`.
+
+For small data sets, `slice` may produce very short output, or no output. This artifact diminishes as the rate and/or input line count grows. Rather, we have optimized the sampling algorithm to scale well over large data sets. The chance of preservation is evaluated once per line. In other words, different runs at the same slice rating may produce different sample output _line counts_, as well as different sample line contents. For best effect, grow your input data size, or try using the `-skip` option.
 
 `slice` can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic rate behavior.
 
@@ -64,7 +85,7 @@ Washington
 Yokohama
 ```
 
-By default, `slice` reads from stdin. `slice` reads up to one specified text file per run.
+By default, `slice` reads from stdin.
 
 See `slice -help` for more information.
 
