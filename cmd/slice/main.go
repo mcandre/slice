@@ -12,9 +12,7 @@ import (
 	"time"
 )
 
-const DefaultRate = float64(0.1)
-
-var flagRate = flag.Float64("rate", DefaultRate, fmt.Sprintf("Probability of preserving each line, in (0.0, 1.0]. Default: %v", DefaultRate))
+var flagRate = flag.Float64("rate", 0.1, "Probability of preserving each line, in (0.0, 1.0]")
 var flagHelp = flag.Bool("help", false, "Show usage information")
 var flagVersion = flag.Bool("version", false, "Show version information")
 
@@ -37,13 +35,28 @@ func main() {
 	chIn, chOut, chDone := slice.Slice(rate)
 	defer func() { chDone<-struct{}{} }()
 
-	scanner := bufio.NewScanner(os.Stdin)
+	reader := os.Stdin
+
+	args := flag.Args()
+
+	if len(args) > 0 {
+		r, err := os.Open(args[0])
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		defer r.Close()
+		reader = r
+	}
 
 	go func() {
 		for {
 			fmt.Println(<-chOut)
 		}
 	}()
+
+	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
 		chIn<-scanner.Text()

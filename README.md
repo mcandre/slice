@@ -17,7 +17,7 @@ For example, `head`/`tail` only show the very start and end of a document. Where
 ```console
 $ cd examples
 
-$ slice <romeo-and-juliet.txt
+$ slice romeo-and-juliet.txt
   Escalus, Prince of Verona.
   Friar John, Franciscan.
   Three Musicians.
@@ -27,7 +27,7 @@ $ slice <romeo-and-juliet.txt
                                                          [Exit.]
 ```
 
-See `slice -help` for more information.
+By default, `slice` reads from STDIN. See `slice -help` for more information.
 
 # DOCUMENTATION
 
