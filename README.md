@@ -1,19 +1,8 @@
 # slice: text sampler
 
-slice samples random lines from STDIN.
+slice samples random lines from your texts.
 
-# ABOUT
-
-slice extracts random lines from text. This is useful for a variety of applications.
-
-* Statistics
-* Random name generator
-* Text processing
-* File previewing
-
-For example, `head`/`tail` only show the very start and end of a document. Where slice shows a more representative interlace of the overall content. Like `less`/`more`, but in a compact, intentionally lossy form.
-
-# EXAMPLES
+# EXAMPLE
 
 ```console
 $ cd examples
@@ -28,7 +17,22 @@ $ slice romeo-and-juliet.txt
                                                          [Exit.]
 ```
 
-By default, the CLI rate preserves `0.1` (10%) of the lines in the source text. This preservation probability can be customized with a `-rate` flag.
+# ABOUT
+
+slice extracts random lines from text. This is useful for a variety of applications.
+
+* Statistics
+* Random name generator
+* Text processing
+* File previewing
+
+For example, `head`/`tail` only show the very start and end of a document. Where slice shows a more representative interlace of the overall content. Like `less`/`more`, but in a compact, intentionally lossy form.
+
+## Usage
+
+By default, the preservation rate of each line is `0.1` (10%). The probability of preserving the line onto output is evaluated once per line; different runs of the same slice command may produce different sample output _line counts_, as well as different line contents.
+
+This probability can be customized with a `-rate` flag, as a value in `[0.0, 1.0]`. For example, to sample 5% of the stellar constellations:
 
 ```console
 $ slice -rate 0.05 constellations.txt
@@ -84,5 +88,6 @@ FreeBSD
 * [sed](https://en.wikipedia.org/wiki/Sed), a simple line processor
 * [shuf](https://linux.die.net/man/1/shuf), a line shuffler
 * [uniq](https://linux.die.net/man/1/uniq), a text filter for uniqueness
+* [wc](https://linux.die.net/man/1/wc) provides basic text file metrics
 
 🔪

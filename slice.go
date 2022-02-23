@@ -14,6 +14,8 @@ const DefaultRate = float64(0.1)
 //
 // rate specifies the probability of preserving each line.
 //
+// Sampling is tuneable via the Seed function from math/rand.
+//
 // Returns an input channel for submitting population lines;
 // an output channel for receiving sample lines;
 // and a done channel for concluding the sampling operation.
