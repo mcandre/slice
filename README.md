@@ -25,6 +25,11 @@ $ slice romeo-and-juliet.txt
   Nurse to Juliet.
     In fair Verona, where we lay our scene,
                                                          [Exit.]
+
+$ slice -rate 0.05 constellations.txt
+Ara
+Bootes
+Canis
 ```
 
 By default, `slice` reads from STDIN. See `slice -help` for more information.

@@ -33,7 +33,7 @@ func main() {
 	rate := *flagRate
 
 	chIn, chOut, chDone := slice.Slice(rate)
-	defer func() { chDone<-struct{}{} }()
+	defer func() { chDone <- struct{}{} }()
 
 	reader := os.Stdin
 
@@ -59,7 +59,7 @@ func main() {
 	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
-		chIn<-scanner.Text()
+		chIn <- scanner.Text()
 	}
 
 	if err := scanner.Err(); err != nil {

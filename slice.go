@@ -28,7 +28,7 @@ func Slice(rate float64) (chan<- string, <-chan string, chan<- struct{}) {
 				break
 			case line = <-chIn:
 				if rand.Float64() < rate {
-					chOut<- line
+					chOut <- line
 				}
 			}
 		}
