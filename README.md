@@ -30,6 +30,21 @@ $ slice -rate 0.05 constellations.txt
 Ara
 Bootes
 Canis
+
+$ slice -skip 2 cities.txt
+Amsterdam
+Casablanca
+Edison
+Gallipoli
+Italia
+Kilogramme
+Madagascar
+Oslo
+Quebec
+Santiago
+Upsala
+Washington
+Yokohama
 ```
 
 By default, `slice` reads from STDIN. See `slice -help` for more information.

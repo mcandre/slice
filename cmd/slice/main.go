@@ -13,6 +13,7 @@ import (
 )
 
 var flagRate = flag.Float64("rate", 0.1, "Probability of preserving each line, in (0.0, 1.0]")
+var flagSkip = flag.Int64("skip", 0, "Deterministically skip every nth line. Disables rate.")
 var flagHelp = flag.Bool("help", false, "Show usage information")
 var flagVersion = flag.Bool("version", false, "Show version information")
 
@@ -30,9 +31,15 @@ func main() {
 
 	rand.Seed(time.Now().UnixNano())
 
-	rate := *flagRate
+	rate := flagRate
+	var skip *int64
 
-	chIn, chOut, chDone := slice.Slice(rate)
+	if flagSkip != nil && *flagSkip != 0 {
+		rate = nil
+		skip = flagSkip
+	}
+
+	chIn, chOut, chDone := slice.Slice(rate, skip)
 	defer func() { chDone <- struct{}{} }()
 
 	reader := os.Stdin
