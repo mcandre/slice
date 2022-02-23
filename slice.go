@@ -31,7 +31,7 @@ func Slice(rate *float64, skip *int64) (chan<- string, <-chan string, chan<- str
 			case <-chDone:
 				break
 			case line = <-chIn:
-				if rate != nil {
+				if skip == nil {
 					if rand.Float64() < *rate {
 						chOut <- line
 					}
