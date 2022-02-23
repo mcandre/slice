@@ -47,6 +47,7 @@ FreeBSD
 * [head](https://linux.die.net/man/1/head)/[tail](https://linux.die.net/man/1/tail), basic text truncators
 * [less](https://linux.die.net/man/1/less), an interactive text file reader
 * [more](https://en.wikipedia.org/wiki/More_(command)), a limited interactive text file reader
+* [perl](https://www.perl.org/), a very complex text processor
 * [sed](https://en.wikipedia.org/wiki/Sed), a simple line processor
 
 🔪
