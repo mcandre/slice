@@ -41,7 +41,7 @@ Bootes
 Canis
 ```
 
-Alternatively, slice can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic `-rate` behavior.
+Alternatively, slice can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic rate behavior.
 
 ```console
 $ slice -skip 2 cities.txt
