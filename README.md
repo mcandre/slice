@@ -41,26 +41,29 @@ Bootes
 Canis
 ```
 
-`slice` supports sampling multiple text files concurrently.
+`slice` supports iterating over multiple text files.
 
 ```console
 $ slice constellations.txt cities.txt colors.txt
-Ara
-Yellow
-Aries
-Gallipoli
-Cassiopeia
-Coma
-Washington
-Zurich
-Equuleus
-Leo
-Lupus
-Phoenix
-Vulpecula
+Auriga
+Bootes
+Canis
+Cepheus
+Corona
+Delphinus
+Piscis
+Sculptor
+Telescopium
+Triangulum
+Amsterdam
+Italia
+Tripoli
+Valencia
+Orange
+Blue
 ```
 
-`slice` is not primarily a reordering tool. Neither for line reordering nor file path reordering. Any apparent shuffling is a natural consequence of the input data and thread timings. Where deliberate shuffling is desired, slice may pipe with additional tools like `shuf`.
+`slice` is not primarily a reordering tool. Neither for line reordering nor file path reordering. Any apparent shuffling is a natural consequence of the inputs. If deliberate shuffling is desired, then pipe slice with additional tools like `shuf`.
 
 For small data sets, `slice` can produce very short output, or even no output. This artifact diminishes as the rate and/or input line count grows. In order to optimize the sampling algorithm for large data sets, we evaluate the chance of preservation once per line, at the time that line is processed. In other words, different runs at the same rating, may produce different sample output _line counts_, as well as different output contents. For best effect, generate more input data, or try the `-skip` option.
 

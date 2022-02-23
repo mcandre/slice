@@ -10,15 +10,14 @@ const Version = "0.0.3"
 // DefaultRate controls the normal probability preservation rate of each line.
 const DefaultRate = float64(0.1)
 
-// Slice samples text.
+// Slice samples strings.
 //
-// rate specifies the probability of preserving each line.
+// rate specifies the probability of preserving each string.
 //
 // Sampling is tuneable via the Seed function from math/rand.
 //
-// Returns an input channel for submitting population lines;
-// an output channel for receiving sample lines;
-// and a done channel for concluding the sampling operation.
+// Returns an input channel for submitting population strings;
+// an output channel for receiving sample strings.
 func Slice(rate *float64, skip *int64) (chan<- string, <-chan string, chan<- struct{}) {
 	chIn := make(chan string)
 	chOut := make(chan string)
