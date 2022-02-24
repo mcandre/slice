@@ -1,13 +1,13 @@
-# slice: text sampler
+# snare: text sampler
 
-slice samples random lines from your texts.
+![bear catching salmon](snare.png)
 
 # EXAMPLE
 
 ```console
 $ cd examples
 
-$ slice romeo-and-juliet.txt
+$ snare romeo-and-juliet.txt
   Escalus, Prince of Verona.
   Friar John, Franciscan.
   Three Musicians.
@@ -19,59 +19,45 @@ $ slice romeo-and-juliet.txt
 
 # ABOUT
 
-slice extracts random lines from text. This is useful for a variety of applications.
+`snare` catches lines at random from text files, and tosses the rest back onto `/dev/null`. This stochastic filtering is useful for a variety of applications.
 
 * Statistics
-* Random name generator
+* Random name generators
 * Text processing
 * Telemetry downsampling
-* File previewing
+* File previews
 
-For example, `head`/`tail` show only the very start and end of a document. Whereas slice shows a more representative interlace of the overall content. Akin to `less`/`more`, but in a compact, intentionally lossy form.
+For example, `head`/`tail` may show the start and end of a document. Whereas `snare` shows a more representative sample of the overall document body. In this way, `snare` behaves akin to `less`/`more`, but in a compact, lossy form.
 
 ## Usage
 
-By default, the preservation rate of each line is `0.1` (10%).
+By default, the catch rate of each text line is `0.10` (10%). That is, 10% of text lines become output, with the remaining 90% slipping away.
 
-This probability can be customized with a `-rate` flag, as a value in `[0.0, 1.0]`. For example, to sample 5% of the stellar constellations:
+The catch rate can be customized with a `-rate <value>` flag, using values in the range `[0.000, 1.000]`. For example, to sample `0.05` (5%) of stellar constellations:
 
 ```console
-$ slice -rate 0.05 constellations.txt
-Ara
-Bootes
-Canis
+$ snare -rate 0.05 constellations.txt
+Aquarius
+Pisces
 ```
 
-`slice` supports iterating over multiple text files.
+`snare` supports multiple file paths.
 
 ```console
-$ slice constellations.txt cities.txt colors.txt
-Auriga
-Bootes
-Canis
-Cepheus
-Corona
-Delphinus
-Piscis
-Sculptor
-Telescopium
-Triangulum
-Amsterdam
-Italia
-Tripoli
-Valencia
-Orange
-Blue
+$ snare constellations.txt cities.txt colors.txt
+Pisces
+Yokohama
+Red
 ```
 
-`slice` is not primarily a reordering tool. Neither for line reordering nor file path reordering. Any apparent shuffling is a natural consequence of the inputs. If deliberate shuffling is desired, then pipe slice with additional tools like `shuf`.
+`snare` is optimized for large data sets, and does not support robust entry reordering. Any apparent reorderding is an accidental artifact. This is a consequence of how `snare` optimizes for large data sets, for example by deciding each text line catch/release chance in a streaming fashion. Each chance resolves independently of the other. For deliberate shuffling of your data, you may pipe `snare` to additional tools such as `shuf`.
 
-For small data sets, `slice` can produce very short output, or even no output. This artifact diminishes as the rate and/or input line count grows. In order to optimize the sampling algorithm for large data sets, we evaluate the chance of preservation once per line, at the time that line is processed. In other words, different runs at the same rating, may produce different sample output _line counts_, as well as different output contents. For best effect, generate more input data, or try the `-skip` option.
+Likewise, different runs of the same `snare` experiments may produce different sample sizes. For best effect, generate more input data, increase the sample rate, or try the `-skip` option.
 
-`slice` can deterministically skip every nth line of source text with a `-skip` flag. This disables probabalistic rate behavior.
+`-skip <n>` deterministically skips every nth text line. This disables probabalistic rate behavior.
 
 ```console
-$ slice -skip 2 cities.txt
+$ snare -skip 2 cities.txt
 Amsterdam
 Casablanca
 Edison
@@ -87,17 +73,17 @@ Washington
 Yokohama
 ```
 
-By default, `slice` reads from stdin.
+By default, `snare` reads from stdin.
 
-See `slice -help` for more information.
+See `snare -help` for more information.
 
 # DOWNLOAD
 
-https://github.com/mcandre/slice/releases
+https://github.com/mcandre/snare/releases
 
 # DOCUMENTATION
 
-https://pkg.go.dev/github.com/mcandre/slice
+https://pkg.go.dev/github.com/mcandre/snare
 
 # CONTRIBUTING
 
@@ -119,4 +105,4 @@ FreeBSD
 * [uniq](https://linux.die.net/man/1/uniq), a text filter for uniqueness
 * [wc](https://linux.die.net/man/1/wc) provides basic text file metrics
 
-🔪
+![salmon run](salmon-run.png)

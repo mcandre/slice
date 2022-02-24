@@ -1,4 +1,4 @@
-package slice
+package snare
 
 import (
 	"math/rand"
@@ -10,7 +10,7 @@ const Version = "0.0.4"
 // DefaultRate controls the normal probability preservation rate of each line.
 const DefaultRate = float64(0.1)
 
-// Slice samples strings.
+// Snare samples strings.
 //
 // rate specifies the probability of preserving each string.
 //
@@ -18,7 +18,7 @@ const DefaultRate = float64(0.1)
 //
 // Returns an input channel for submitting population strings;
 // an output channel for receiving sample strings.
-func Slice(rate *float64, skip *int64) (chan<- string, <-chan string, chan<- struct{}) {
+func Snare(rate *float64, skip *int64) (chan<- string, <-chan string, chan<- struct{}) {
 	chIn := make(chan string)
 	chOut := make(chan string)
 	chDone := make(chan struct{})

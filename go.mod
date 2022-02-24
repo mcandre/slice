@@ -1,4 +1,4 @@
-module github.com/mcandre/slice
+module github.com/mcandre/snare
 
 go 1.17
 

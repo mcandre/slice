@@ -9,7 +9,7 @@ import (
 
 	"github.com/magefile/mage/mg"
 	"github.com/mcandre/mage-extras"
-	"github.com/mcandre/slice"
+	"github.com/mcandre/snare"
 )
 
 // artifactsPath describes where artifacts are produced.
@@ -48,10 +48,10 @@ func Lint() error {
 }
 
 // portBasename labels the artifact basename.
-var portBasename = fmt.Sprintf("slice-%s", slice.Version)
+var portBasename = fmt.Sprintf("snare-%s", snare.Version)
 
 // repoNamespace identifies the Go namespace for this project.
-var repoNamespace = "github.com/mcandre/slice"
+var repoNamespace = "github.com/mcandre/snare"
 
 // Factorio cross-compiles Go binaries with additional targets enabled.
 func Factorio() error { return mageextras.Factorio(portBasename) }
@@ -63,7 +63,7 @@ func Port() error { mg.Deps(Factorio); return mageextras.Archive(portBasename, a
 func Install() error { return mageextras.Install() }
 
 // Uninstall deletes installed Go applications.
-func Uninstall() error { return mageextras.Uninstall("slice") }
+func Uninstall() error { return mageextras.Uninstall("snare") }
 
 // Clean deletes artifacts.
 func Clean() error { return os.RemoveAll(artifactsPath) }
