@@ -95,7 +95,7 @@ See [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ![salmon run](salmon-run.png)
 
-# SEE ALSO
+# RESOURCES
 
 * [awk](https://en.wikipedia.org/wiki/AWK), a complex line processor
 * [head](https://linux.die.net/man/1/head)/[tail](https://linux.die.net/man/1/tail), basic text truncators
