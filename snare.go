@@ -14,6 +14,9 @@ const DefaultRate = float64(0.1)
 //
 // rate specifies the probability of preserving each string.
 //
+// skip specifies deterministic skipping each nth file entry.
+// This option disables probabilistic rate behavior.
+//
 // Sampling is tuneable via the Seed function from math/rand.
 //
 // Returns an input channel for submitting population strings;

@@ -45,7 +45,7 @@ https://pkg.go.dev/github.com/mcandre/snare
 
 By default, the catch rate of each text line is `0.10` (10%). That is, 10% of text lines become output, with the remaining 90% slipping away.
 
-The catch rate can be customized with a `-rate <value>` flag, using values in the range `[0.000, 1.000]`. For example, to sample `0.05` (5%) of stellar constellations:
+The catch rate can be customized with a `-rate <value>` flag, using values in the range `[0.0, ... 1.0]`. For example, to sample `0.05` (5%) of stellar constellations:
 
 ```console
 $ snare -rate 0.05 constellations.txt
