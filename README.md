@@ -19,7 +19,7 @@ $ snare romeo-and-juliet.txt
 
 # ABOUT
 
-`snare` catches lines at random from text files, and tosses the rest back onto `/dev/null`. This stochastic filtering is useful for a variety of applications.
+`snare` catches lines at random from text files, and tosses the rest back onto `/dev/null`. This stochastic filtering has several uses:
 
 * Statistics
 * Random name generators
@@ -41,13 +41,7 @@ https://github.com/mcandre/snare/releases
 
 https://pkg.go.dev/github.com/mcandre/snare
 
-# CONTRIBUTING
-
-See [DEVELOPMENT.md](DEVELOPMENT.md).
-
-# COMMAND LINE INTERFACE
-
-![salmon run](salmon-run.png)
+# USAGE
 
 By default, the catch rate of each text line is `0.10` (10%). That is, 10% of text lines become output, with the remaining 90% slipping away.
 
@@ -94,6 +88,12 @@ Yokohama
 By default, `snare` reads from stdin.
 
 See `snare -help` for more information.
+
+# CONTRIBUTING
+
+See [DEVELOPMENT.md](DEVELOPMENT.md).
+
+![salmon run](salmon-run.png)
 
 # SEE ALSO
 
