@@ -99,8 +99,10 @@ See [DEVELOPMENT.md](DEVELOPMENT.md).
 
 * [awk](https://en.wikipedia.org/wiki/AWK), a complex line processor
 * [head](https://linux.die.net/man/1/head)/[tail](https://linux.die.net/man/1/tail), basic text truncators
+* [hellcat](https://github.com/mcandre/hellcat), a portable hex dumper
 * [less](https://linux.die.net/man/1/less), an interactive text file reader
 * [more](https://en.wikipedia.org/wiki/More_(command)), a limited interactive text file reader
+* [od](https://linux.die.net/man/1/od), a classic hex dumper
 * [perl](https://www.perl.org/), a very complex text processor
 * [sed](https://en.wikipedia.org/wiki/Sed), a simple line processor
 * [shuf](https://linux.die.net/man/1/shuf), a line shuffler
