@@ -29,7 +29,25 @@ $ snare romeo-and-juliet.txt
 
 For example, `head`/`tail` may show the start and end of a document. Whereas `snare` shows a more representative sample of the overall document body. In this way, `snare` behaves akin to `less`/`more`, but in a compact, lossy form.
 
-## Usage
+# LICENSE
+
+FreeBSD
+
+# DOWNLOAD
+
+https://github.com/mcandre/snare/releases
+
+# API DOCUMENTATION
+
+https://pkg.go.dev/github.com/mcandre/snare
+
+# CONTRIBUTING
+
+See [DEVELOPMENT.md](DEVELOPMENT.md).
+
+# COMMAND LINE INTERFACE
+
+![salmon run](salmon-run.png)
 
 By default, the catch rate of each text line is `0.10` (10%). That is, 10% of text lines become output, with the remaining 90% slipping away.
 
@@ -77,22 +95,6 @@ By default, `snare` reads from stdin.
 
 See `snare -help` for more information.
 
-# DOWNLOAD
-
-https://github.com/mcandre/snare/releases
-
-# DOCUMENTATION
-
-https://pkg.go.dev/github.com/mcandre/snare
-
-# CONTRIBUTING
-
-See [DEVELOPMENT.md](DEVELOPMENT.md).
-
-# LICENSE
-
-FreeBSD
-
 # SEE ALSO
 
 * [awk](https://en.wikipedia.org/wiki/AWK), a complex line processor
@@ -104,5 +106,3 @@ FreeBSD
 * [shuf](https://linux.die.net/man/1/shuf), a line shuffler
 * [uniq](https://linux.die.net/man/1/uniq), a text filter for uniqueness
 * [wc](https://linux.die.net/man/1/wc) provides basic text file metrics
-
-![salmon run](salmon-run.png)
