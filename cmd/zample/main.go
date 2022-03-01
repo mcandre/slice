@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mcandre/snare"
+	"github.com/mcandre/zample"
 
 	"bufio"
 	"flag"
@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-var flagRate = flag.Float64("rate", snare.DefaultRate, "Probability of preserving each line, in the range [0.0, .... 1.0]")
+var flagRate = flag.Float64("rate", zample.DefaultRate, "Probability of preserving each line, in the range [0.0, .... 1.0]")
 var flagSkip = flag.Int64("skip", 0, "Deterministically skip every nth line. Disables rate.")
 var flagHelp = flag.Bool("help", false, "Show usage information")
 var flagVersion = flag.Bool("version", false, "Show version information")
@@ -22,7 +22,7 @@ func main() {
 
 	switch {
 	case *flagVersion:
-		fmt.Printf("snare %v\n", snare.Version)
+		fmt.Printf("zample %v\n", zample.Version)
 		os.Exit(0)
 	case *flagHelp:
 		flag.PrintDefaults()
@@ -57,7 +57,7 @@ func main() {
 		}
 	}
 
-	chIn, chOut, chDone := snare.Snare(rate, skip)
+	chIn, chOut, chDone := zample.Zample(rate, skip)
 	defer func() { chDone <- struct{}{} }()
 
 	go func() {

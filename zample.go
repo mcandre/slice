@@ -1,4 +1,4 @@
-package snare
+package zample
 
 import (
 	"math/rand"
@@ -10,7 +10,7 @@ const Version = "0.0.5"
 // DefaultRate controls the normal probability preservation rate of each line.
 const DefaultRate = float64(0.1)
 
-// Snare samples strings.
+// Zample selects strings from a random source.
 //
 // rate specifies the probability of preserving each string.
 //
@@ -20,8 +20,8 @@ const DefaultRate = float64(0.1)
 // Sampling is tuneable via the Seed function from math/rand.
 //
 // Returns an input channel for submitting population strings;
-// an output channel for receiving sample strings.
-func Snare(rate *float64, skip *int64) (chan<- string, <-chan string, chan<- struct{}) {
+// an output channel for receiving select strings.
+func Zample(rate *float64, skip *int64) (chan<- string, <-chan string, chan<- struct{}) {
 	chIn := make(chan string)
 	chOut := make(chan string)
 	chDone := make(chan struct{})

@@ -1,4 +1,4 @@
-module github.com/mcandre/snare
+module github.com/mcandre/zample
 
 go 1.17
 

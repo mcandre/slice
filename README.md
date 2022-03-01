@@ -1,13 +1,11 @@
-# snare: text sampler
-
-![bear catching salmon](snare.png)
+# zample: streaming line filter
 
 # EXAMPLE
 
 ```console
 $ cd examples
 
-$ snare romeo-and-juliet.txt
+$ zample romeo-and-juliet.txt
   Escalus, Prince of Verona.
   Friar John, Franciscan.
   Three Musicians.
@@ -19,7 +17,7 @@ $ snare romeo-and-juliet.txt
 
 # ABOUT
 
-`snare` catches lines at random from text files, and tosses the rest back onto `/dev/null`. This stochastic filtering has several uses:
+`zample` selects random lines from text inputs. This kind of filter has several uses:
 
 * Statistics
 * Random name generators
@@ -27,7 +25,7 @@ $ snare romeo-and-juliet.txt
 * Telemetry downsampling
 * File previews
 
-For example, `head`/`tail` may show the start and end of a document. Whereas `snare` shows a more representative sample of the overall document body. In this way, `snare` behaves akin to `less`/`more`, but in a compact, lossy form.
+For example, `head`/`tail` may show the start and end of a document. Whereas `zample` shows a more representative view of the overall document body. In this way, `zample` behaves akin to `less`/`more`, but in a compact, lossy form.
 
 # LICENSE
 
@@ -35,41 +33,41 @@ FreeBSD
 
 # DOWNLOAD
 
-https://github.com/mcandre/snare/releases
+https://github.com/mcandre/zample/releases
 
 # API DOCUMENTATION
 
-https://pkg.go.dev/github.com/mcandre/snare
+https://pkg.go.dev/github.com/mcandre/zample
 
 # USAGE
 
-By default, the catch rate of each text line is `0.10` (10%). That is, 10% of text lines become output, with the remaining 90% slipping away.
+By default, the selection rate of each text line is a `0.10` (10%) chance per line. That is, about 10% of text lines may become output, with the remaining 90% being stripped away from the output.
 
-The catch rate can be customized with a `-rate <value>` flag, using values in the range `[0.0, ... 1.0]`. For example, to sample `0.05` (5%) of stellar constellations:
+The sampling rate can be customized with a `-rate <value>` flag, using values in the range `[0.0, ... 1.0]`. For example, to select `0.05` (5%) of stellar constellations:
 
 ```console
-$ snare -rate 0.05 constellations.txt
+$ zample -rate 0.05 constellations.txt
 Aquarius
 Pisces
 ```
 
-`snare` supports multiple file paths.
+`zample` supports multiple file paths.
 
 ```console
-$ snare constellations.txt cities.txt colors.txt
+$ zample constellations.txt cities.txt colors.txt
 Pisces
 Yokohama
 Red
 ```
 
-`snare` is optimized for large data sets, and does not support robust entry reordering. Any apparent reorderding is an accidental artifact. This is a consequence of how `snare` optimizes for large data sets, for example by deciding each text line catch/release chance in a streaming fashion. Each chance resolves independently of the other. For deliberate shuffling of your data, you may pipe `snare` to additional tools such as `shuf`.
+`zample` is optimized for large data sets, and does not support robust entry reordering. Any apparent reorderding is an accidental artifact. This is a consequence of how `zample` optimizes for large data sets, for example by deciding each text line catch/release chance in a streaming fashion. Each chance resolves independently of the other. For deliberate shuffling of your data, you may pipe `zample` to additional tools such as `shuf`.
 
-Likewise, different runs of the same `snare` experiments may produce different sample sizes. For best effect, generate more input data, increase the sample rate, or try the `-skip` option.
+Likewise, different runs of the same `zample` experiments may produce different result sizes. For best effect, generate more input data, increase the selection rate, or try the `-skip` option.
 
 `-skip <n>` deterministically skips every nth text line. This disables probabalistic rate behavior.
 
 ```console
-$ snare -skip 2 cities.txt
+$ zample -skip 2 cities.txt
 Amsterdam
 Casablanca
 Edison
@@ -85,15 +83,13 @@ Washington
 Yokohama
 ```
 
-By default, `snare` reads from stdin.
+By default, `zample` reads from stdin.
 
-See `snare -help` for more information.
+See `zample -help` for more information.
 
 # CONTRIBUTING
 
 See [DEVELOPMENT.md](DEVELOPMENT.md).
-
-![salmon run](salmon-run.png)
 
 # SEE ALSO
 
@@ -108,3 +104,5 @@ See [DEVELOPMENT.md](DEVELOPMENT.md).
 * [shuf](https://linux.die.net/man/1/shuf), a line shuffler
 * [uniq](https://linux.die.net/man/1/uniq), a text filter for uniqueness
 * [wc](https://linux.die.net/man/1/wc) provides basic text file metrics
+
+🧪
