@@ -5,7 +5,7 @@ import (
 )
 
 // Version is semver.
-const Version = "0.0.5"
+const Version = "0.0.6"
 
 // DefaultRate controls the normal probability preservation rate of each line.
 const DefaultRate = float64(0.1)
