@@ -91,7 +91,7 @@ See `zample -help` for more information.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md).
 
-# SEE ALSO
+# RESOURCES
 
 * [awk](https://en.wikipedia.org/wiki/AWK), a complex line processor
 * [head](https://linux.die.net/man/1/head)/[tail](https://linux.die.net/man/1/tail), basic text truncators
