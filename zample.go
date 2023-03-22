@@ -4,9 +4,6 @@ import (
 	"math/rand"
 )
 
-// Version is semver.
-const Version = "0.0.7"
-
 // DefaultRate controls the normal probability preservation rate of each line.
 const DefaultRate = float64(0.1)
 
