@@ -33,7 +33,7 @@ func Zample(rate *float64, skip *int64) (chan<- string, <-chan string, chan<- st
 		for {
 			select {
 			case <-chDone:
-				break
+				return
 			case line = <-chIn:
 				if skip == nil {
 					if rand.Float64() < *rate {
