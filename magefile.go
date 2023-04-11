@@ -6,9 +6,10 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 
 	"github.com/magefile/mage/mg"
-	"github.com/mcandre/mage-extras"
+	mageextras "github.com/mcandre/mage-extras"
 	"github.com/mcandre/zample"
 )
 
@@ -42,6 +43,9 @@ func Nakedret() error { return mageextras.Nakedret("-l", "0") }
 // Staticcheck runs staticcheck.
 func Staticcheck() error { return mageextras.Staticcheck() }
 
+// Unmake runs unmake.
+func Unmake() error { return exec.Command("unmake", "makefile").Run() }
+
 // Lint runs the lint suite.
 func Lint() error {
 	mg.Deps(GoVet)
@@ -51,6 +55,7 @@ func Lint() error {
 	mg.Deps(Errcheck)
 	mg.Deps(Nakedret)
 	mg.Deps(Staticcheck)
+	mg.Deps(Unmake)
 	return nil
 }
 
