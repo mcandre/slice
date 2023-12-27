@@ -29,7 +29,15 @@ For example, `head`/`tail` may show the start and end of a document. Whereas `za
 
 # LICENSE
 
-FreeBSD
+BSD-2-Clause
+
+# RUNTIME REQUIREMENTS
+
+(None)
+
+# CONTRIBUTING
+
+See [DEVELOPMENT.md](DEVELOPMENT.md).
 
 # DOWNLOAD
 
@@ -86,10 +94,6 @@ Yokohama
 By default, `zample` reads from stdin.
 
 See `zample -help` for more information.
-
-# CONTRIBUTING
-
-See [DEVELOPMENT.md](DEVELOPMENT.md).
 
 # RESOURCES
 
